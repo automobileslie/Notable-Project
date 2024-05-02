@@ -21,8 +21,6 @@ def doctors():
 
         doctors = conn.execute("SELECT * FROM doctors").fetchall()
 
-        # uncomment this code to render a bare bones display of doctor information
-
         doctorList = []
 
         for doctor in doctors:
