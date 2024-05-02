@@ -86,15 +86,14 @@ def appointments():
         conn.close()
 
         # in the future I would build this out more to only allow appointments if the time, etc. is acceptable
-        return 200
+        return jsonify("Success")
 
     
     if request.method == "DELETE":
         appointment_id = request.form.get('id')
         conn = get_db_connection()
         conn.execute("SELECT * FROM appointments WHERE id = ?", [appointment_id])
-
-        return 200 
+        return jsonify("Success")
 
 
 @app.route("/patients", methods=["GET"])
