@@ -47,8 +47,6 @@ def appointments():
 
         appointments = conn.execute("SELECT * FROM appointments").fetchall()
 
-        # uncomment this code to render a bare bones display of doctor information
-
         appointmentList = []
 
         for appointment in appointments:
