@@ -92,7 +92,7 @@ def appointments():
     if request.method == "DELETE":
         appointment_id = request.form.get('id')
         conn = get_db_connection()
-        conn.execute("SELECT * FROM appointments WHERE id = ?", [appointment_id])
+        conn.execute("DELETE FROM appointments WHERE id = ?", [appointment_id])
         return jsonify("Success")
 
 
