@@ -73,12 +73,14 @@ def appointments():
         return jsonify(appointmentList), 200
     
     if request.method == "POST":
-        appointment_id = request.form.get('appointment_id')
-        patient_id = request.form.get('patient_id')
-        doctor_id = request.form.get('doctor_id')
-        time = request.form.get('time')
-        date = request.form.get('date')
-        kind = request.form.get('kind')
+        print(request.args.get('appointment_id'))
+
+        appointment_id = request.args.get('appointment_id')
+        patient_id = request.args.get('patient_id')
+        doctor_id = request.args.get('doctor_id')
+        time = request.args.get('time')
+        date = request.args.get('date')
+        kind = request.args.get('kind')
         conn = get_db_connection()
 
         conn.execute("INSERT INTO appointments (patient_id, doctor_id, time, date, kind) VALUES(?, ?, ?, ?, ?)", [patient_id, doctor_id, time, date, kind])
@@ -87,7 +89,6 @@ def appointments():
 
         # in the future I would build this out more to only allow appointments if the time, etc. is acceptable
         return jsonify("Success")
-
     
     if request.method == "DELETE":
         appointment_id = request.form.get('id')
@@ -107,13 +108,9 @@ def patients():
             seed_database()
 
         patients = conn.execute("SELECT * FROM patients").fetchall()
-
-        print(patients)
-
         patientList = []
 
         for patient in patients:
-            print(patient)
             patientList.append([
                 {"id": patient["id"]}, 
                 {"first_name": patient["first_name"]}, 
