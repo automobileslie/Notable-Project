@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block title %}
+    Appointments Index
+{% endblock %}
+
+{% block main %}
+<table>
+{% for appointment in appointments %}
+  <tr>
+    <td>{{appointment.patient_id}}</td>
+    <td>{{appointment.doctor_id}}</td>
+    <td>{{appointment.kind}}</td>
+    <td>{{appointment.date}}</td>
+    <td>{{appointment.time}}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}

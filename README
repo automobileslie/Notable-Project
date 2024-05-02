@@ -1,0 +1,17 @@
+ Notable Application
+
+
+I. To run the application, follow these steps: 
+
+I. Getting the application up and running
+  1. Make sure Python is installed on your computer.
+  2. Run 'python3 -m venv .venv'
+  3. Run '. .venv/bin/activate'
+  4. Run 'pip install Flask'
+  5. Set up the database and start the server for the first time by running 'DB_PATH=notable_app.db flask run'
+  6. On subsequent visits to the application, run step 3 above in your terminal, then enter 'flask run' to get the server started
+
+
+II. Debugging the database
+  1. To debug the database, enter 'sqlite3 notable_app.db' in a terminal window in the root directory of the app.
+  2. To see the schema when in the database on the command line, enter '.schema'

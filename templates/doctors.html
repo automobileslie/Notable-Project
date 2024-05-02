@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+{% block title %}
+    Doctors Index
+{% endblock %}
+
+{% block main %}
+<table>
+{% for doctor in doctors %}
+  <tr>
+    <td>{{doctor.first_name}}</td>
+    <td>{{doctor.last_name}}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}
